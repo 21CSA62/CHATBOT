@@ -1,0 +1,510 @@
+    .chat-bar-collapsible {
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.collapsible {
+    background-color: rgb(46, 99, 255);
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 1450px;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    border-radius: 10px 10px 0px 0px;
+    border: 3px solid white;
+    border-bottom: none;
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+.full-chat-block {
+    width: 1450px;
+    background: white;
+    text-align: center;
+    overflow: auto;
+    scrollbar-width: none;
+    height: max-content;
+    transition: max-height 0.2s ease-out;
+}
+
+.outer-container {
+    min-height: 500px;
+    bottom: 0%;
+    position: relative;
+}
+
+.chat-container {
+    max-height: 500px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    scroll-behavior: smooth;
+    hyphens: auto;
+}
+
+.chat-container::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-bar-input-block {
+    display: flex;
+    float: left;
+    box-sizing: border-box;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px 0px 10px 10px;
+}
+
+.chat-bar-icons {
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    width: 25%;
+    float: right;
+    font-size: 20px;
+}
+
+#chat-icon:hover {
+    opacity: .7;
+}
+
+/* Chat bubbles */
+
+#userInput {
+    width: 75%;
+}
+
+.input-box {
+    float: left;
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    color: #000;
+    background-color: white;
+    outline: none
+}
+
+.userText {
+    color: rgb(248, 248, 248);
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: right;
+    clear: both;
+}
+
+.userText span {
+    line-height: 1.5em;
+    display: inline-block;
+    background: #31423c;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-right-radius: 2px;
+    max-width: 80%;
+    margin-right: 10px;
+    animation: floatup .5s forwards
+}
+
+.botText {
+    color: #0e0e0e;
+    font-family: Helvetica;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: left;
+}
+
+.botText span {
+    line-height: 1.5em;
+    display: inline-block;
+    background: #a9a6a6;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-left-radius: 2px;
+    max-width: 80%;
+    margin-left: 10px;
+    animation: floatup .5s forwards
+}
+
+@keyframes floatup {
+    from {
+        transform: translateY(14px);
+        opacity: .0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .full-chat-block {
+        width: 100%;
+        border-radius: 0px;
+    }
+    .chat-bar-collapsible {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+    }
+    .collapsible {
+        width: 100%;
+        border: 0px;
+        border-top: 3px solid rgb(245, 244, 244);
+        border-radius: 0px;
+    }
+}
+
+.integration-dropdown {
+    display: none;
+    position: absolute;
+    top: 60px; /* Adjust as needed */
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1;
+    min-width: 160px;
+}
+
+/* Dropdown list */
+.integration-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.integration-dropdown ul li {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.integration-dropdown ul li:hover {
+    background-color: #f9f9f9;
+}
+
+
+.integration .integration-item {
+    color: white; /* Set text color to white */
+    font-weight: bold; /* Set font weight to bold */
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.integration .integration-item:hover {
+    color: #fdfffe; /* Change color on hover */
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+.logo .robot-emoji {
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.logo .chatbot-text {
+    font-weight: bold;
+    color: white; /* Changed text color to white */
+}
+
+.integration {
+    position: absolute;
+    top: 20px;
+    left: 70px; /* Adjusted position to match the left side of the "CHATBOT" emoji */
+    font-size: 24px; /* Adjusted font size to match the "CHATBOT" emoji */
+    color: white; /* Changed text color to white */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.integration:hover {
+    color: #000000; /* Change color on hover */
+}
+
+.integration-dropdown {
+    display: none;
+    position: absolute;
+    top: 60px; /* Adjust as needed */
+    left: 70px; /* Adjust as needed */
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1;
+    min-width: 160px;
+}
+
+/* Dropdown list */
+.integration-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.integration-dropdown ul li {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.integration-dropdown ul li:hover {
+    background-color: #f9f9f9;
+}
+
+.integration {
+    position: absolute;
+    top: 20px;
+    left: calc(50px + 288px); /* Adjusted position 3 inches (288 pixels) to the right */
+    font-size: 24px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.integration .integration-item {
+    font-size: 28px; /* Increased font size */
+    color: white;
+    font-weight: bold;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.integration {
+    position: absolute;
+    top: 20px;
+    left: calc(50px - 96px); /* Adjusted position 1 inch (96 pixels) to the left */
+    font-size: 28px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+.integration {
+    position: absolute;
+    top: 20px;
+    left: calc(110px + 96px); /* Adjusted position 1 inch (96 pixels) to the right */
+    font-size: 24px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+/* New styles for login button and password toggle */
+.login-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 16px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    background-color: #333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.password-toggle {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.password-toggle input[type="password"] {
+    padding-right: 40px;
+}
+
+.password-toggle .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* New styles for password toggle */
+.password-toggle {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    display: inline-block;
+    font-family: 'Arial', sans-serif;
+}
+
+.password-toggle input[type="password"] {
+    padding: 10px;
+    padding-right: 40px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.password-toggle .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+}
+
+/* Login button */
+.login-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 16px;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    background-color: #333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Username input */
+.username-input {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Password input */
+.password-input {
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Password toggle */
+.password-toggle {
+    position: absolute;
+    top: 142px;
+    right: 30px;
+    cursor: pointer;
+    color: #999;
+}
+
+
+/* Username input */
+.username-input {
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+/* Password input */
+.password-input {
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+/* New styles for Google-like input */
+.google-input {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.google-input input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.google-mic-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    color: #999;
+}
+
+.google-mic-button:hover {
+    color: #666;
+}
+
+/* Add this to your existing CSS file or create a new one */
+.language-buttons {
+    margin-bottom: 10px;
+}
+
+.lang-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.lang-button:hover {
+    background-color: #45a049; /* Darker Green */
+}
